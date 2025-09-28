@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIH 2025 - Recruiter Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Enhanced Header -->
+  <header class="visitor-header-enhanced">
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="logo">🎓 SIH 2025</div>
+        <div class="campus-badge">Recruiter Portal</div>
+      </div>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#" id="contactAdminBtn" class="nav-link"><i class="fas fa-envelope"></i> Contact Admin</a></li>
+          <li><a href="login.html" class="nav-link logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </nav>
+
+      <div class="visitor-profile-header">
+        <div class="search-box">
+          <input type="text" id="studentSearch" placeholder="Search top students...">
+          <button onclick="searchTopStudents()"><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="profile-card">
+          <div class="visitor-avatar">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=robert" alt="Recruiter Avatar">
+            <div class="online-status"></div>
+          </div>
+          <div class="profile-info">
+            <div class="visitor-name">Mr. Robert Johnson</div>
+            <div class="visitor-details">
+              <span class="company">Tech Innovations Inc.</span>
+              <span class="position">Senior Recruitment Manager</span>
+            </div>
+          </div>
+          <div class="quick-stats">
+            <div class="stat">
+              <div class="stat-value" id="verifiedCount">8</div>
+              <div class="stat-label">Verified</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" id="postsCount">3</div>
+              <div class="stat-label">Posts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress Overview -->
+  <section class="progress-overview">
+    <div class="container">
+      <div class="progress-grid">
+        <div class="progress-card">
+          <div class="progress-icon">
+            <i class="fas fa-qrcode"></i>
+          </div>
+          <div class="progress-content">
+            <h3>QR Verifications</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 80%"></div>
+            </div>
+            <span class="progress-text">8/10 This Week</span>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-icon analytics">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="progress-content">
+            <h3>Reports Generated</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 60%"></div>
+            </div>
+            <span class="progress-text">6/10 This Month</span>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-icon posts">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <div class="progress-content">
+            <h3>Opportunities Posted</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 75%"></div>
+            </div>
+            <span class="progress-text">3/4 Active</span>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-icon candidates">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <div class="progress-content">
+            <h3>Top Candidates</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 90%"></div>
+            </div>
+            <span class="progress-text">45/50 Contacted</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Dashboard -->
+  <main class="visitor-dashboard-enhanced">
+    <div class="container">
+      <!-- Quick Actions -->
+      <section class="quick-actions-section">
+        <h2 class="section-title">Recruiter Actions</h2>
+        <div class="actions-grid">
+          <div class="action-card" onclick="toggleVerificationSection()">
+            <div class="action-icon">
+              <i class="fas fa-qrcode"></i>
+            </div>
+            <div class="action-content">
+              <h3>QR Certificate Verification</h3>
+              <p>Verify student certificates using QR technology</p>
+              <span class="action-badge">Secure</span>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="action-card" onclick="toggleAnalyticsSection()">
+            <div class="action-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="action-content">
+              <h3>Student Analytics</h3>
+              <p>Generate comprehensive student reports</p>
+              <span class="action-badge">AI Powered</span>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="action-card" onclick="togglePostingSection()">
+            <div class="action-icon">
+              <i class="fas fa-bullhorn"></i>
+            </div>
+            <div class="action-content">
+              <h3>Post Opportunities</h3>
+              <p>Share job openings and campus events</p>
+              <span class="action-badge">Instant</span>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="action-card" onclick="showTopAchievers()">
+            <div class="action-icon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="action-content">
+              <h3>Top Achievers</h3>
+              <p>Browse highest performing students</p>
+              <span class="action-badge">Elite</span>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Two Column Layout -->
+      <div class="dashboard-columns">
+        <!-- Left Column -->
+        <div class="column-left">
+          <!-- QR Verification Section -->
+          <section class="verification-section-enhanced" id="verificationSection">
+            <div class="section-header">
+              <h2><i class="fas fa-qrcode"></i> QR Certificate Verification</h2>
+              <div class="section-actions">
+                <button class="action-btn primary" onclick="startQRScan()">
+                  <i class="fas fa-camera"></i> Scan QR
+                </button>
+                <button class="action-btn secondary" onclick="uploadQRImage()">
+                  <i class="fas fa-upload"></i> Upload Image
+                </button>
+              </div>
+            </div>
+
+            <div class="verification-interface-enhanced">
+              <div class="upload-area-enhanced" id="uploadArea">
+                <div class="upload-icon">
+                  <i class="fas fa-qrcode"></i>
+                </div>
+                <h3>Verify Student Certificate</h3>
+                <p>Scan QR code or upload image to verify certificate authenticity</p>
+                <div class="upload-actions">
+                  <button class="upload-btn-enhanced" onclick="startQRScan()">
+                    <i class="fas fa-camera"></i> Use Camera
+                  </button>
+                  <button class="upload-btn-enhanced secondary" onclick="uploadQRImage()">
+                    <i class="fas fa-image"></i> Upload Image
+                  </button>
+                </div>
+                <input type="file" id="qrUpload" accept="image/*" style="display: none;">
+              </div>
+
+              <div class="verification-result-enhanced" id="verificationResult" style="display: none;">
+                <div class="result-header">
+                  <h3><i class="fas fa-check-circle"></i> Verification Result</h3>
+                  <span class="result-badge valid">Valid Certificate</span>
+                </div>
+                <div class="result-content-enhanced" id="resultContent">
+                  <!-- Results will be populated here -->
+                </div>
+                <div class="result-actions">
+                  <button class="result-btn primary" onclick="downloadVerifiedCertificate()">
+                    <i class="fas fa-download"></i> Download Certificate
+                  </button>
+                  <button class="result-btn secondary" onclick="contactStudent()">
+                    <i class="fas fa-envelope"></i> Contact Student
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Recent Verifications -->
+          <section class="recent-verifications">
+            <div class="section-header">
+              <h2><i class="fas fa-history"></i> Recent Verifications</h2>
+              <button class="view-all-btn">View All</button>
+            </div>
+            <div class="verifications-list" id="recentVerifications">
+              <div class="verification-item">
+                <div class="verification-icon valid">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="verification-info">
+                  <h4>John Doe - NCC Certificate</h4>
+                  <p>Verified: 2025-09-28 • Confidence: 98%</p>
+                </div>
+                <div class="verification-status valid">Valid</div>
+              </div>
+              <div class="verification-item">
+                <div class="verification-icon valid">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="verification-info">
+                  <h4>Jane Smith - Hackathon</h4>
+                  <p>Verified: 2025-09-27 • Confidence: 95%</p>
+                </div>
+                <div class="verification-status valid">Valid</div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Column -->
+        <div class="column-right">
+          <!-- Analytics Section -->
+          <section class="analytics-section-enhanced" id="analyticsSection">
+            <div class="section-header">
+              <h2><i class="fas fa-chart-bar"></i> Student Analytics</h2>
+            </div>
+            
+            <div class="analytics-filters">
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label for="domainFilter"><i class="fas fa-layer-group"></i> Primary Domain:</label>
+                  <select id="domainFilter">
+                    <option value="">All Domains</option>
+                    <option value="sports">Sports</option>
+                    <option value="clubs">Clubs Community</option>
+                    <option value="technical">Technical</option>
+                  </select>
+                </div>
+                <div class="filter-group">
+                  <label for="skillFilter"><i class="fas fa-tools"></i> Key Skills:</label>
+                  <select id="skillFilter">
+                    <option value="">All Skills</option>
+                    <option value="programming">Programming</option>
+                    <option value="leadership">Leadership</option>
+                    <option value="communication">Communication</option>
+                    <option value="technical">Technical Skills</option>
+                  </select>
+                </div>
+              </div>
+              <div class="filter-row">
+                <div class="filter-group">
+                  <label for="certificateFilter"><i class="fas fa-certificate"></i> Min. Certificates:</label>
+                  <input type="number" id="certificateFilter" min="0" value="2">
+                </div>
+                <div class="filter-group">
+                  <label for="sortBy"><i class="fas fa-sort"></i> Sort By:</label>
+                  <select id="sortBy">
+                    <option value="badges">Number of Badges</option>
+                    <option value="name">Student Name</option>
+                    <option value="domain">Primary Domain</option>
+                  </select>
+                </div>
+              </div>
+              <button class="generate-analytics-btn" onclick="generateAdvancedReport()">
+                <i class="fas fa-chart-line"></i> Generate Analytics Report
+              </button>
+            </div>
+
+            <div class="analytics-dashboard-enhanced">
+              <div class="chart-container-enhanced">
+                <h3>Domain Distribution</h3>
+                <div class="chart-enhanced" id="domainChart">
+                  <canvas id="domainChartCanvas"></canvas>
+                </div>
+              </div>
+              <div class="stats-container-enhanced">
+                <h3>Quick Statistics</h3>
+                <div class="stats-grid-enhanced" id="quickStats">
+                  <!-- Stats will be populated here -->
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Quick Stats -->
+          <section class="stats-card">
+            <h2>Recruitment Overview</h2>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value">125</div>
+                <div class="stat-label">Students</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">89%</div>
+                <div class="stat-label">Verified</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">23</div>
+                <div class="stat-label">Top Talent</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Active Posts</div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Job Posting Section -->
+      <section class="posting-section-enhanced" id="postingSection">
+        <div class="section-header">
+          <h2><i class="fas fa-bullhorn"></i> Post Opportunity</h2>
+          <div class="section-actions">
+            <button class="action-btn primary" onclick="showPostForm()">
+              <i class="fas fa-plus"></i> New Post
+            </button>
+          </div>
+        </div>
+
+        <div class="posting-interface">
+          <div class="post-form-enhanced" id="postForm">
+            <div class="form-header">
+              <h3>Create New Opportunity</h3>
+              <p>Share job openings, internships, or campus events</p>
+            </div>
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="postType"><i class="fas fa-tag"></i> Opportunity Type:</label>
+                <select id="postType" class="form-select">
+                  <option value="job">Job Opening</option>
+                  <option value="event">Campus Event</option>
+                  <option value="internship">Internship</option>
+                  <option value="workshop">Workshop</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="postTitle"><i class="fas fa-heading"></i> Title:</label>
+                <input type="text" id="postTitle" class="form-input" placeholder="e.g., Software Engineer Position">
+              </div>
+              
+              <div class="form-group full-width">
+                <label for="postDescription"><i class="fas fa-align-left"></i> Description:</label>
+                <textarea id="postDescription" class="form-textarea" placeholder="Detailed description of the opportunity..." rows="4"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="postDeadline"><i class="fas fa-calendar"></i> Application Deadline:</label>
+                <input type="date" id="postDeadline" class="form-input">
+              </div>
+              
+              <div class="form-group">
+                <label for="postContact"><i class="fas fa-envelope"></i> Contact Email:</label>
+                <input type="email" id="postContact" class="form-input" placeholder="recruiter@company.com">
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button class="btn-secondary" onclick="hidePostForm()">Cancel</button>
+              <button class="btn-primary" onclick="submitOpportunity()">
+                <i class="fas fa-paper-plane"></i> Post Opportunity
+              </button>
+            </div>
+          </div>
+
+          <div class="recent-posts-enhanced" id="recentPosts">
+            <h3>Your Recent Posts</h3>
+            <div class="posts-list-enhanced">
+              <!-- Posts will be populated here -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Enhanced Footer -->
+  <footer class="visitor-footer-enhanced">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>🏆 Top Achievers - Sports</h3>
+          <div class="achievers-list-enhanced" id="sportsAchievers">
+            <!-- Sports achievers will be populated here -->
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>🏆 Top Achievers - Clubs</h3>
+          <div class="achievers-list-enhanced" id="clubsAchievers">
+            <!-- Clubs achievers will be populated here -->
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>🏆 Top Achievers - Technical</h3>
+          <div class="achievers-list-enhanced" id="technicalAchievers">
+            <!-- Technical achievers will be populated here -->
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-actions">
+        <button class="footer-action-btn" onclick="downloadTalentPool()">
+          <i class="fas fa-download"></i> Download Talent Pool
+        </button>
+        <button class="footer-action-btn" onclick="scheduleCampusVisit()">
+          <i class="fas fa-calendar-check"></i> Schedule Campus Visit
+        </button>
+        <button class="footer-action-btn" onclick="contactAdmissions()">
+          <i class="fas fa-phone"></i> Contact Admissions
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Contact Admin Modal -->
+  <div id="contactAdminModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3><i class="fas fa-envelope"></i> Contact Campus Administration</h3>
+        <span class="close">&times;</span>
+      </div>
+      <form id="contactAdminForm" class="modal-form">
+        <div class="form-group">
+          <label for="contactSubject">Subject:</label>
+          <input type="text" id="contactSubject" required>
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Message:</label>
+          <textarea id="contactMessage" rows="5" required></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn-primary">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- QR Scanner Modal -->
+  <div id="qrScannerModal" class="modal">
+    <div class="modal-content large">
+      <div class="modal-header">
+        <h3><i class="fas fa-camera"></i> QR Code Scanner</h3>
+        <span class="close" onclick="closeQRScanner()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="scanner-container" id="scannerContainer">
+          <div class="scanner-placeholder">
+            <i class="fas fa-qrcode"></i>
+            <p>Camera feed will appear here when started</p>
+            <button class="scanner-start-btn" onclick="startCameraForQR()">Start Camera</button>
+          </div>
+          <video id="qrCameraFeed" style="display: none;"></video>
+        </div>
+        <div class="scanner-instructions">
+          <p><i class="fas fa-info-circle"></i> Position the QR code within the camera view to scan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

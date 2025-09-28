@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIH 2025 - Student Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Enhanced Header -->
+  <header class="student-header-enhanced">
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="logo">🎓 SIH 2025</div>
+        <div class="campus-badge">Premium Campus</div>
+      </div>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#" id="newsBtn" class="nav-link"><i class="fas fa-newspaper"></i> News</a></li>
+          <li><a href="#" id="helpBtn" class="nav-link"><i class="fas fa-question-circle"></i> Help</a></li>
+          <li><a href="#" id="contactBtn" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li><a href="login.html" class="nav-link logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+      </nav>
+
+      <div class="student-profile-header">
+        <div class="notification-bell">
+          <i class="fas fa-bell"></i>
+          <span class="notification-count">3</span>
+        </div>
+        
+        <div class="search-box">
+          <input type="text" placeholder="Search activities..." id="studentSearch">
+          <button><i class="fas fa-search"></i></button>
+        </div>
+
+        <div class="profile-card">
+          <div class="student-avatar">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=john" alt="Student Avatar">
+            <div class="online-status"></div>
+          </div>
+          <div class="profile-info">
+            <div class="student-name">John Doe</div>
+            <div class="student-details">
+              <span class="roll-number">S12345</span>
+              <span class="batch">2023-27</span>
+            </div>
+            <div class="department">Computer Science & Engineering</div>
+          </div>
+          <div class="quick-stats">
+            <div class="stat">
+              <div class="stat-value">12</div>
+              <div class="stat-label">Activities</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">8</div>
+              <div class="stat-label">Certificates</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Progress Overview -->
+  <section class="progress-overview">
+    <div class="container">
+      <div class="progress-grid">
+        <div class="progress-card">
+          <div class="progress-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="progress-content">
+            <h3>Overall Progress</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 75%"></div>
+            </div>
+            <span class="progress-text">75% Complete</span>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-icon technical">
+            <i class="fas fa-code"></i>
+          </div>
+          <div class="progress-content">
+            <h3>Technical Skills</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 60%"></div>
+            </div>
+            <span class="progress-text">6/10 Skills</span>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-icon sports">
+            <i class="fas fa-running"></i>
+          </div>
+          <div class="progress-content">
+            <h3>Sports</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 40%"></div>
+            </div>
+            <span class="progress-text">4/10 Events</span>
+          </div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-icon clubs">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="progress-content">
+            <h3>Clubs</h3>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 85%"></div>
+            </div>
+            <span class="progress-text">17/20 Activities</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Dashboard -->
+  <main class="student-dashboard-enhanced">
+    <div class="container">
+      <!-- Quick Actions -->
+      <section class="quick-actions-section">
+        <h2 class="section-title">Quick Actions</h2>
+        <div class="actions-grid">
+          <div class="action-card" onclick="toggleResumeUpload()">
+            <div class="action-icon">
+              <i class="fas fa-file-upload"></i>
+            </div>
+            <div class="action-content">
+              <h3>Upload Resume/CV</h3>
+              <p>Update your professional profile</p>
+              <span class="action-badge">PDF Required</span>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="action-card" onclick="toggleActivitySubmission()">
+            <div class="action-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <div class="action-content">
+              <h3>Add Certificate</h3>
+              <p>Submit new activity certificate</p>
+              <span class="action-badge">QR Generated</span>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="action-card" onclick="displayStudentQR()">
+            <div class="action-icon">
+              <i class="fas fa-qrcode"></i>
+            </div>
+            <div class="action-content">
+              <h3>My QR Code</h3>
+              <p>Verified certificates portfolio</p>
+              <span class="action-badge">8 Certificates</span>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+
+          <div class="action-card" onclick="toggleRequestForm()">
+            <div class="action-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="action-content">
+              <h3>Faculty Request</h3>
+              <p>Contact faculty for support</p>
+              <span class="action-badge">Fast Response</span>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Two Column Layout -->
+      <div class="dashboard-columns">
+        <!-- Left Column -->
+        <div class="column-left">
+          <!-- Certificate Status -->
+          <section class="status-section">
+            <div class="section-header">
+              <h2>Certificate Status</h2>
+              <div class="status-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Approved</button>
+                <button class="filter-btn">Pending</button>
+              </div>
+            </div>
+            <div class="certificates-list">
+              <div class="certificate-item approved">
+                <div class="certificate-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="certificate-info">
+                  <h4>NCC Beat-link Certificate</h4>
+                  <p>Clubs Community • NCC</p>
+                  <span class="certificate-date">Approved: Sep 26, 2025</span>
+                </div>
+                <div class="certificate-badge approved">Approved</div>
+              </div>
+
+              <div class="certificate-item pending">
+                <div class="certificate-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="certificate-info">
+                  <h4>SIH 2025 Hackathon</h4>
+                  <p>Technical • Hackathon</p>
+                  <span class="certificate-date">Submitted: Sep 28, 2025</span>
+                </div>
+                <div class="certificate-badge pending">Under Review</div>
+              </div>
+
+              <div class="certificate-item approved">
+                <div class="certificate-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="certificate-info">
+                  <h4>Technical Workshop</h4>
+                  <p>Technical • Workshop</p>
+                  <span class="certificate-date">Approved: Aug 15, 2025</span>
+                </div>
+                <div class="certificate-badge approved">Approved</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Recent Activity -->
+          <section class="activity-section">
+            <h2>Recent Activity</h2>
+            <div class="activity-timeline">
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-certificate"></i>
+                </div>
+                <div class="activity-content">
+                  <p>Submitted Technical Workshop certificate</p>
+                  <span class="activity-time">2 hours ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-user-check"></i>
+                </div>
+                <div class="activity-content">
+                  <p>Profile updated successfully</p>
+                  <span class="activity-time">1 day ago</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <div class="activity-icon">
+                  <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="activity-content">
+                  <p>QR code accessed by recruiter</p>
+                  <span class="activity-time">2 days ago</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Column -->
+        <div class="column-right">
+          <!-- Statistics Card -->
+          <section class="stats-card">
+            <h2>Performance Overview</h2>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Total Certificates</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Approved</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">2</div>
+                <div class="stat-label">Pending</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">85%</div>
+                <div class="stat-label">Completion</div>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Leadership</span>
+              <span class="skill-tag">NCC</span>
+              <span class="skill-tag">Sports</span>
+            </div>
+          </section>
+
+          <!-- Upcoming Deadlines -->
+          <section class="deadlines-section">
+            <h2>Upcoming Deadlines</h2>
+            <div class="deadlines-list">
+              <div class="deadline-item">
+                <div class="deadline-date">
+                  <span class="date-day">30</span>
+                  <span class="date-month">SEP</span>
+                </div>
+                <div class="deadline-content">
+                  <h4>Hackathon Submission</h4>
+                  <p>Technical Department</p>
+                </div>
+                <div class="deadline-badge urgent">3 days left</div>
+              </div>
+              <div class="deadline-item">
+                <div class="deadline-date">
+                  <span class="date-day">05</span>
+                  <span class="date-month">OCT</span>
+                </div>
+                <div class="deadline-content">
+                  <h4>Sports Competition</h4>
+                  <p>Sports Committee</p>
+                </div>
+                <div class="deadline-badge">1 week left</div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Enhanced Forms (Hidden by default) -->
+  <div class="modal-overlay" id="requestModal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Contact Faculty</h3>
+        <button class="close-modal" onclick="toggleRequestForm()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <textarea id="requestText" placeholder="Describe your request or complaint in detail (max 150 words)" maxlength="750"></textarea>
+        <div class="char-count">0/750 characters</div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="toggleRequestForm()">Cancel</button>
+        <button class="btn-primary" onclick="sendRequest()">Send Request</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="resumeModal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Upload Resume/CV</h3>
+        <button class="close-modal" onclick="toggleResumeUpload()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="resumeForm" class="upload-form">
+          <div class="file-upload-area">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Drag & drop your resume here or click to browse</p>
+            <input type="file" id="resumeFile" accept=".pdf" required>
+            <button type="button" class="browse-btn">Browse Files</button>
+          </div>
+          <div class="form-tips">
+            <p><i class="fas fa-info-circle"></i> File must be in PDF format, max size 5MB</p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="toggleResumeUpload()">Cancel</button>
+        <button class="btn-primary" onclick="document.getElementById('resumeForm').submit()">Upload Resume</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Footer -->
+  <footer class="student-footer-enhanced">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Campus Portal</a></li>
+            <li><a href="#">Academic Calendar</a></li>
+            <li><a href="#">Placement Cell</a></li>
+            <li><a href="#">Library Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Faculty</a></li>
+            <li><a href="#">Technical Support</a></li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SIH Campus Portal. All rights reserved. | Designed for Student Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chart.js/3.9.1/chart.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIH 2025 - Smart Campus Portal</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Enhanced Header -->
+  <header class="home-header-enhanced">
+    <div class="header-content">
+      <div class="logo-section">
+        <div class="logo">🎓 SIH 2025</div>
+        <div class="campus-badge">Smart Campus</div>
+      </div>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#" id="newsBtn" class="nav-link"><i class="fas fa-newspaper"></i> News</a></li>
+          <li><a href="#" id="helpBtn" class="nav-link"><i class="fas fa-question-circle"></i> Help</a></li>
+          <li><a href="#" id="contactBtn" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li><a href="login.html" class="nav-link login-btn"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-stats">
+        <div class="stat-item">
+          <div class="stat-value">1,250+</div>
+          <div class="stat-label">Students</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value">85%</div>
+          <div class="stat-label">Placement</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section-enhanced">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">Welcome to Smart Campus Portal</h1>
+        <p class="hero-subtitle">Transform your academic journey with digital certification, QR verification, and seamless campus management</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <i class="fas fa-certificate"></i>
+            <div>
+              <span class="number">2,500+</span>
+              <span class="label">Certificates Issued</span>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <i class="fas fa-qrcode"></i>
+            <div>
+              <span class="number">98%</span>
+              <span class="label">Verification Rate</span>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <i class="fas fa-user-graduate"></i>
+            <div>
+              <span class="number">150+</span>
+              <span class="label">Recruiters</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-card card-1">
+          <i class="fas fa-qrcode"></i>
+          <span>QR Verification</span>
+        </div>
+        <div class="floating-card card-2">
+          <i class="fas fa-award"></i>
+          <span>Digital Certificates</span>
+        </div>
+        <div class="floating-card card-3">
+          <i class="fas fa-chart-line"></i>
+          <span>Analytics</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Actions Section -->
+  <section class="main-actions-enhanced">
+    <div class="container">
+      <div class="section-header">
+        <h2>Campus Portal Features</h2>
+        <p>Access powerful tools for certificate management and campus activities</p>
+      </div>
+
+      <div class="actions-grid-enhanced">
+        <div class="action-card-enhanced" onclick="redirectToLogin()">
+          <div class="action-icon">
+            <i class="fas fa-qrcode"></i>
+          </div>
+          <div class="action-content">
+            <h3>QR Verification of Certificate</h3>
+            <p>Instant verification of student certificates using advanced QR technology with real-time validation</p>
+            <span class="action-badge">Secure</span>
+          </div>
+          <div class="action-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+
+        <div class="action-card-enhanced" onclick="redirectToLogin()">
+          <div class="action-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="action-content">
+            <h3>Apply for Event / Workshops</h3>
+            <p>Register for campus events, workshops, and competitions with seamless application process</p>
+            <span class="action-badge">Popular</span>
+          </div>
+          <div class="action-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+
+        <div class="action-card-enhanced" onclick="redirectToLogin()">
+          <div class="action-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <div class="action-content">
+            <h3>Generate Student Report</h3>
+            <p>Comprehensive analytics and detailed reports on student performance and achievements</p>
+            <span class="action-badge">Analytics</span>
+          </div>
+          <div class="action-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Activities & News Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="content-grid">
+        <!-- Latest Activities -->
+        <div class="content-card">
+          <div class="card-header">
+            <h2><i class="fas fa-calendar-alt"></i> Latest Activities & Events</h2>
+            <button class="view-all-btn">View All</button>
+          </div>
+          <div class="events-content-enhanced" id="eventsBox">
+            <div class="event-item">
+              <div class="event-date">
+                <span class="date-day">30</span>
+                <span class="date-month">SEP</span>
+              </div>
+              <div class="event-info">
+                <h4>SIH 2025 Hackathon Final</h4>
+                <p>Technical Department • Main Auditorium</p>
+                <span class="event-status upcoming">Upcoming</span>
+              </div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">
+                <span class="date-day">25</span>
+                <span class="date-month">SEP</span>
+              </div>
+              <div class="event-info">
+                <h4>NCC Certificate Distribution</h4>
+                <p>Clubs Community • NCC Office</p>
+                <span class="event-status completed">Completed</span>
+              </div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">
+                <span class="date-day">28</span>
+                <span class="date-month">SEP</span>
+              </div>
+              <div class="event-info">
+                <h4>Sports Week 2025</h4>
+                <p>Sports Committee • College Ground</p>
+                <span class="event-status ongoing">Ongoing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- News & Notices -->
+        <div class="content-card">
+          <div class="card-header">
+            <h2><i class="fas fa-bullhorn"></i> News & Notices</h2>
+            <button class="view-all-btn">View All</button>
+          </div>
+          <div class="notices-content-enhanced" id="noticesBox">
+            <div class="notice-item">
+              <div class="notice-icon">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="notice-info">
+                <h4>Academic Calendar 2025-26</h4>
+                <p>Updated academic schedule for the upcoming year</p>
+                <a href="assets/pdf/sample1.pdf" download class="download-link">
+                  <i class="fas fa-download"></i> Download PDF
+                </a>
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-icon">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="notice-info">
+                <h4>Placement Drive Schedule</h4>
+                <p>Upcoming company visits and placement opportunities</p>
+                <a href="assets/pdf/sample2.pdf" download class="download-link">
+                  <i class="fas fa-download"></i> Download PDF
+                </a>
+              </div>
+            </div>
+            <div class="notice-item">
+              <div class="notice-icon">
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <div class="notice-info">
+                <h4>Scholarship Application</h4>
+                <p>Merit-based scholarship opportunities for students</p>
+                <a href="#" class="download-link">
+                  <i class="fas fa-download"></i> Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced Footer -->
+  <footer class="home-footer-enhanced">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Access</h3>
+          <ul>
+            <li><a href="login.html">Student Login</a></li>
+            <li><a href="login.html">Faculty Login</a></li>
+            <li><a href="login.html">Recruiter Portal</a></li>
+            <li><a href="#">Campus Directory</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">User Guide</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+          </div>
+          <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> contact@sih2025.edu</p>
+            <p><i class="fas fa-phone"></i> +91-9876543210</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SIH Campus Portal. All rights reserved. | Empowering Education Through Technology</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Enhanced Chatbot -->
+  <div class="chatbot-enhanced" id="chatbotBox">
+    <div class="chatbot-header">
+      <h3><i class="fas fa-robot"></i> Campus Assistant</h3>
+      <button class="chatbot-close" onclick="toggleChatbot()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="chat-content-enhanced">
+      <div class="chat-message bot-message">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          <p>Hello! I'm your campus assistant. How can I help you today?</p>
+          <span class="message-time">Just now</span>
+        </div>
+      </div>
+    </div>
+    <div class="chat-input-container">
+      <input type="text" placeholder="Type your question..." class="chat-input">
+      <button class="send-btn">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Chatbot Toggle Button -->
+  <div class="chatbot-toggle" onclick="toggleChatbot()">
+    <i class="fas fa-comments"></i>
+  </div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

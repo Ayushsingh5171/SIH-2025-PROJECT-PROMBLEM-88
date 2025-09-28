@@ -10,3 +10,4 @@
    |-- js/
        |-- script.js   (final JS for all)
 create folder in this manner then only project will run
+
